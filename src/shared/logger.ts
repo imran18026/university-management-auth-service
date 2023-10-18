@@ -37,7 +37,7 @@ const logger = createLogger({
 })
 
 // errorlogger for Error
-const errorlogger = createLogger({
+const errorLogger = createLogger({
   level: 'error',
   format: combine(label({ label: 'UMS' }), timestamp(), myFormat),
   transports: [
@@ -58,4 +58,4 @@ const errorlogger = createLogger({
   ],
 })
 
-export { errorlogger, logger }
+export { errorLogger, logger }
