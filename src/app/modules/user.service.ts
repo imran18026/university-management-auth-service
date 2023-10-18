@@ -1,30 +1,26 @@
-//Note: service use for only business logic or database logic.
-
 import config from '../../config'
+import ApiError from '../../errors/ApiError'
 import { IUser } from './user.interface'
 import { User } from './user.model'
-import { generatedUserID } from './user.utils'
+import { generateUserId } from './user.utils'
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
-  console.log(user)
-  //auto generated incremental id
-  const id = await generatedUserID()
-  //user id
+  // auto generated incremental id
+  const id = await generateUserId()
   user.id = id
-
-  //default password
+  // default password
   if (!user.password) {
     user.password = config.student_default_password as string
   }
 
   const createdUser = await User.create(user)
-  console.log(user)
-  if (!createUser) {
-    throw new Error('Faild to create user 😒')
+
+  if (!createdUser) {
+    throw new ApiError(400, 'Failed to create')
   }
   return createdUser
 }
 
-export default {
+export const UserService = {
   createUser,
 }
