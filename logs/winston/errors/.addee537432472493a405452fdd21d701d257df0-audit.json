@@ -44,6 +44,16 @@
             "date": 1697659385812,
             "name": "F:\\Special-project\\usm\\university-management-auth-service\\logs\\winston\\errors\\project-2023-19-10-02-error.log",
             "hash": "ef200981f435bf68e91bcc009985d3162032057773dec6739ff0474e1a42fd11"
+        },
+        {
+            "date": 1697725274415,
+            "name": "F:\\Special-project\\usm\\university-management-auth-service\\logs\\winston\\errors\\project-2023-19-10-20-error.log",
+            "hash": "d84f8d221d92624d2b92f651a2116f07c692b98c4a1fb81f91d718da09a07ccd"
+        },
+        {
+            "date": 1697740104753,
+            "name": "F:\\Special-project\\usm\\university-management-auth-service\\logs\\winston\\errors\\project-2023-20-10-00-error.log",
+            "hash": "34dbbe048cdfc3c0754c66a2694ba097388d0e9f9018489577732a750709f9a8"
         }
     ],
     "hashType": "sha256"

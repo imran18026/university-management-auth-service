@@ -19,11 +19,13 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   let errorMessages: IGenericErrorMessage[] = []
 
   if (error?.name === 'validationError') {
+    //Validation Error
     const simplifiedError = handleValidationError(error)
     statusCode = simplifiedError.statusCode
     message = simplifiedError.message
     errorMessages = simplifiedError.errorMessages
   } else if (error instanceof ZodError) {
+    // Zod Error
     const simplifiedError = handleZodError(error)
     statusCode = simplifiedError.statusCode
     message = simplifiedError.message
@@ -37,6 +39,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     //     ]
     //   : [];
   } else if (error instanceof ApiError) {
+    //Api Error
     statusCode = error.statusCode
     message = error.message
     errorMessages = error?.message
@@ -48,6 +51,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
         ]
       : []
   } else if (error instanceof Error) {
+    // Cast Error
     message = error?.message
     errorMessages = error?.message
       ? [
