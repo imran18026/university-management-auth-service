@@ -4,12 +4,13 @@ import { RequestHandler } from 'express-serve-static-core'
 import { IUser } from './user.interface'
 import { UserService } from './user.service'
 import httpStatus from 'http-status'
-import catchAsync from '../../shared/catchAsync'
-import sendResponse from '../../shared/sendResponse'
+import catchAsync from '../../../shared/catchAsync'
+import sendResponse from '../../../shared/sendResponse'
 
 const createUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { user } = req.body
+    // console.log(user)
     const result = await UserService.createUser(user)
 
     sendResponse<IUser>(res, {
