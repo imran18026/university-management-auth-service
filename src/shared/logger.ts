@@ -4,7 +4,7 @@ import { createLogger, format, transports } from 'winston'
 import DailyRotateFile from 'winston-daily-rotate-file'
 const { combine, timestamp, label, printf } = format
 
-//Custom Log Format
+//Customm Log Format
 
 const myFormat = printf(({ level, message, label, timestamp }) => {
   const date = new Date(timestamp)
@@ -14,10 +14,9 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
   return `${date.toDateString()} ${hour}:${minutes}:${seconds} } [${label}] ${level}: ${message}`
 })
 
-// logger for info
 const logger = createLogger({
   level: 'info',
-  format: combine(label({ label: 'UMS' }), timestamp(), myFormat),
+  format: combine(label({ label: 'PH' }), timestamp(), myFormat),
   transports: [
     new transports.Console(),
     new DailyRotateFile({
@@ -26,7 +25,7 @@ const logger = createLogger({
         'logs',
         'winston',
         'successes',
-        'project-%DATE%-success.log',
+        'phu-%DATE%-success.log',
       ),
       datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
@@ -36,10 +35,9 @@ const logger = createLogger({
   ],
 })
 
-// errorlogger for Error
-const errorLogger = createLogger({
+const errorlogger = createLogger({
   level: 'error',
-  format: combine(label({ label: 'UMS' }), timestamp(), myFormat),
+  format: combine(label({ label: 'PH' }), timestamp(), myFormat),
   transports: [
     new transports.Console(),
     new DailyRotateFile({
@@ -48,7 +46,7 @@ const errorLogger = createLogger({
         'logs',
         'winston',
         'errors',
-        'project-%DATE%-error.log',
+        'phu-%DATE%-error.log',
       ),
       datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
@@ -58,4 +56,4 @@ const errorLogger = createLogger({
   ],
 })
 
-export { errorLogger, logger }
+export { logger, errorlogger }

@@ -1,0 +1,53 @@
+Fri Nov 03 2023 3:28:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "year"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Fri Nov 03 2023 3:28:42 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Fri Nov 03 2023 3:29:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required"
+  }
+]
+Fri Nov 03 2023 3:34:13 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Fri Nov 03 2023 3:34:29 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required"
+  }
+]
+Fri Nov 03 2023 3:36:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Fri Nov 03 2023 3:37:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Invalid Semester Code
+Fri Nov 03 2023 3:37:33 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Fri Nov 03 2023 3:37:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required"
+  }
+]

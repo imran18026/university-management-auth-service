@@ -1,4 +1,4 @@
-import config from '../../../config'
+import config from '../../../config/index'
 import ApiError from '../../../errors/ApiError'
 import { IUser } from './user.interface'
 import { User } from './user.model'
@@ -10,7 +10,7 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   user.id = id
   // default password
   if (!user.password) {
-    user.password = config.student_default_password as string
+    user.password = config.default_user_pass as string
   }
 
   const createdUser = await User.create(user)
