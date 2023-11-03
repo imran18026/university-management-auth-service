@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // app.use('/api/v1/users/', UserRoutes);
 // app.use('/api/v1/academic-semesters', AcademicSemesterRoutes);
-app.use('/api/v1/', routes)
+app.use('/api/v1', routes)
 
 //Testing
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
@@ -23,7 +23,7 @@ app.use('/api/v1/', routes)
 //global error handler
 app.use(globalErrorHandler)
 
-//handle not found route
+//handle not found
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(httpStatus.NOT_FOUND).json({
     success: false,
@@ -31,7 +31,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     errorMessages: [
       {
         path: req.originalUrl,
-        message: 'Opps! API Not Found.',
+        message: 'API Not Found',
       },
     ],
   })
