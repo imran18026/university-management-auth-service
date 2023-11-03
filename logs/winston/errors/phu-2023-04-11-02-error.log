@@ -1,0 +1,19 @@
+Sat Nov 04 2023 2:28:27 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required"
+  }
+]
+Sat Nov 04 2023 2:28:45 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Sat Nov 04 2023 2:31:46 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Sat Nov 04 2023 2:35:16 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Sat Nov 04 2023 2:36:14 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Sat Nov 04 2023 2:36:58 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Sat Nov 04 2023 2:37:34 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
+Sat Nov 04 2023 2:38:51 } [USM] error: 🐱‍🏍 globalErrorHandler ~~ Academic semester is already exist !
