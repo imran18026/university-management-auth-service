@@ -10,7 +10,10 @@ router.post(
   UserController.createStudent,
 )
 
-//create faculty
+router.post(
+  '/create-faculty',
+  validateRequest(UserValidation.createFacultyZodSchema),
+  UserController.createFaculy,
+)
 
-//create admin
 export const UserRoutes = router
