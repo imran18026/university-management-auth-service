@@ -1,0 +1,16 @@
+Sun Nov 05 2023 20:27:23 } [PH] error: Attempted illegal state transition from [TRANSACTION_COMMITTED] to [TRANSACTION_ABORTED]
+Sun Nov 05 2023 20:30:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ E11000 duplicate key error collection: university-management-auth-service.students index: email_1 dup key: { email: "fr7999777@gmail.com" }
+Sun Nov 05 2023 20:30:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ E11000 duplicate key error collection: university-management-auth-service.students index: email_1 dup key: { email: "fr7999777@gmail.com" }
+Sun Nov 05 2023 20:31:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ E11000 duplicate key error collection: university-management-auth-service.students index: contactNo_1 dup key: { contactNo: "4777999000" }
+Sun Nov 05 2023 20:58:44 } [UM] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "body",
+      "name"
+    ],
+    "message": "Required"
+  }
+]
