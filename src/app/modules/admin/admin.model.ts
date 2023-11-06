@@ -62,6 +62,7 @@ const AdminSchema = new Schema<IAdmin, AdminModel>(
       type: Schema.Types.ObjectId,
       ref: 'ManagementDepartment',
       required: true,
+      unique: true,
     },
     designation: {
       type: String,
