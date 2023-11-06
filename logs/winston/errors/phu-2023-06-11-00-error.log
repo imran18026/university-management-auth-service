@@ -1,0 +1,3 @@
+Mon Nov 06 2023 0:53:5 } [UM] error: 🐱‍🏍 globalErrorHandler ~~ E11000 duplicate key error collection: university-management-auth-service.students index: email_1 dup key: { email: "fr7er99ss9777@gmail.com" }
+Mon Nov 06 2023 0:54:34 } [UM] error: 🐱‍🏍 globalErrorHandler ~~ User validation failed: password: Path `password` is required.
+Mon Nov 06 2023 0:56:16 } [UM] error: 🐱‍🏍 globalErrorHandler ~~ data and salt arguments required
