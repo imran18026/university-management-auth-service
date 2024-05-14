@@ -43,6 +43,7 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   },
 )
 
+// Mongoose pre hook for handle same year and same semester
 academicSemesterSchema.pre('save', async function (next) {
   const isExist = await AcademicSemester.findOne({
     title: this.title,
