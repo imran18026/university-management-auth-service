@@ -58,6 +58,7 @@ academicSemesterSchema.pre('save', async function (next) {
   next()
 })
 
+// model must be use in leter of all pre or post mongoose hooks.
 export const AcademicSemester = model<IAcademicSemester>(
   'AcademicSemester',
   academicSemesterSchema,
