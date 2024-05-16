@@ -5,6 +5,7 @@ import {
   academicSemesterMonths,
 } from './academicSemester.constant'
 
+// create
 const createAcademicSemesterZodSchema = z.object({
   body: z.object({
     title: z.enum([...academicSemesterTitles] as [string, ...string[]], {
@@ -23,6 +24,7 @@ const createAcademicSemesterZodSchema = z.object({
   }),
 })
 
+// update
 const updateAcademicSemesterZodSchema = z
   .object({
     body: z.object({
