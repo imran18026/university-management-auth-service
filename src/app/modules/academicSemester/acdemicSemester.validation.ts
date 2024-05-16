@@ -2,7 +2,7 @@ import { z } from 'zod'
 import {
   academicSemesterCodes,
   academicSemesterTitles,
-  acdemicSemesterMonths,
+  academicSemesterMonths,
 } from './academicSemester.constant'
 
 const createAcademicSemesterZodSchema = z.object({
@@ -14,10 +14,10 @@ const createAcademicSemesterZodSchema = z.object({
       required_error: 'Year is required ',
     }),
     code: z.enum([...academicSemesterCodes] as [string, ...string[]]),
-    startMonth: z.enum([...acdemicSemesterMonths] as [string, ...string[]], {
+    startMonth: z.enum([...academicSemesterMonths] as [string, ...string[]], {
       required_error: 'Start month is needed',
     }),
-    endMonth: z.enum([...acdemicSemesterMonths] as [string, ...string[]], {
+    endMonth: z.enum([...academicSemesterMonths] as [string, ...string[]], {
       required_error: 'End month is needed',
     }),
   }),
@@ -40,12 +40,12 @@ const updateAcademicSemesterZodSchema = z
         .enum([...academicSemesterCodes] as [string, ...string[]])
         .optional(),
       startMonth: z
-        .enum([...acdemicSemesterMonths] as [string, ...string[]], {
+        .enum([...academicSemesterMonths] as [string, ...string[]], {
           required_error: 'Start month is needed',
         })
         .optional(),
       endMonth: z
-        .enum([...acdemicSemesterMonths] as [string, ...string[]], {
+        .enum([...academicSemesterMonths] as [string, ...string[]], {
           required_error: 'End month is needed',
         })
         .optional(),
