@@ -43,6 +43,7 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   },
 )
 
+// Mongoose pre hook for handle same year and same semester
 academicSemesterSchema.pre('save', async function (next) {
   const isExist = await AcademicSemester.findOne({
     title: this.title,
@@ -57,6 +58,7 @@ academicSemesterSchema.pre('save', async function (next) {
   next()
 })
 
+// model must be use in leter of all pre or post mongoose hooks.
 export const AcademicSemester = model<IAcademicSemester>(
   'AcademicSemester',
   academicSemesterSchema,

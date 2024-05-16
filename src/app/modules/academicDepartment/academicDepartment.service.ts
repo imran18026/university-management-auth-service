@@ -51,7 +51,7 @@ const getAllDepartments = async (
     })
   }
 
-  // Filters needs $and to fullfill all the conditions
+  // Filters needs $and to full fill all the conditions
   if (Object.keys(filtersData).length) {
     andConditions.push({
       $and: Object.entries(filtersData).map(([field, value]) => ({
@@ -99,6 +99,7 @@ const updateDepartment = async (
       new: true,
     },
   ).populate('academicFaculty')
+  // populate academic Faculty for getting academic faculty name
 
   return result
 }

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import { IGenericErrorMessage } from '../interfaces/error'
 
+// if id is not valid as mongoose ID formate length required is 24.
 const handleCastError = (error: mongoose.Error.CastError) => {
   const errors: IGenericErrorMessage[] = [
     {
