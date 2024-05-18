@@ -20,10 +20,11 @@ async function bootstrap() {
 
     server = app.listen(config.port, () => {
       // logger.info(`Application  listening on port ${config.port}`);
-      console.log(`Application  listening on port ${config.port}`)
+      console.log(`Application is listening on port ${config.port}`)
     })
   } catch (err) {
-    errorlogger.error('Failed to connect database', err)
+    //Failed to connect database
+    errorlogger.error('Failed to connect Database', err)
   }
 
   process.on('unhandledRejection', error => {
