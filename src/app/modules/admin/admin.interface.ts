@@ -7,6 +7,7 @@ export type UserName = {
   middleName: string
 }
 
+//admin interface
 export type IAdmin = {
   id: string
   name: UserName
