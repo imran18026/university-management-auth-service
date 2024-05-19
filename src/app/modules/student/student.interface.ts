@@ -26,6 +26,7 @@ export type LocalGuardian = {
   address: string
 }
 
+// student interface
 export type IStudent = {
   id: string
   name: UserName //embedded object
