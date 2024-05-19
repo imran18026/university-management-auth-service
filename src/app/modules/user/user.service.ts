@@ -20,48 +20,59 @@ import {
 
 const createStudent = async (
   student: IStudent,
-  user: IUser,
+  user: IUser, //  userData
 ): Promise<IUser | null> => {
-  // If password is not given,set default password
+  // If password is not given, set default password
   if (!user.password) {
     user.password = config.default_student_pass as string
   }
   // set role
   user.role = 'student'
 
-  const academicsemester = await AcademicSemester.findById(
+  //check student academic semester is valid or not from database
+  const academicSemester = await AcademicSemester.findById(
     student.academicSemester,
-  ).lean()
+  ).lean() // lean is used to convert mongoose object to javascript object for easy access to properties and return only necessary properties.
+
+  if (!academicSemester) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      'This academic semester is not available now',
+    )
+  }
 
   let newUserAllData = null
+
+  // start session
   const session = await mongoose.startSession()
   try {
+    // start transaction
     session.startTransaction()
     // generate student id
-    const id = await generateStudentId(academicsemester as IAcademicSemester)
-    // set custom id into both  student & user
+    const id = await generateStudentId(academicSemester as IAcademicSemester)
+    // set same custom id into both student & user
     user.id = id
     student.id = id
 
-    // Create student using sesssin
+    // Create student using session
     const newStudent = await Student.create([student], { session })
 
     if (!newStudent.length) {
-      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create student')
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create student.')
     }
-
-    // set student _id (reference) into user.student
+    // set student _id (reference) into user.student [student _id => user.student as ObjectId as reference]
     user.student = newStudent[0]._id
-
     const newUser = await User.create([user], { session })
 
     if (!newUser.length) {
-      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create user')
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create user.')
     }
     newUserAllData = newUser[0]
 
     await session.commitTransaction()
     await session.endSession()
+
+    // end session and transaction successfully completed.
   } catch (error) {
     await session.abortTransaction()
     await session.endSession()
@@ -87,10 +98,10 @@ const createStudent = async (
 
   return newUserAllData
 }
-
+// create faculty
 const createFaculty = async (
   faculty: IFaculty,
-  user: IUser,
+  user: IUser, // userData,
 ): Promise<IUser | null> => {
   // If password is not given,set default password
   if (!user.password) {
@@ -149,10 +160,10 @@ const createFaculty = async (
 
   return newUserAllData
 }
-
+// create admin
 const createAdmin = async (
   admin: IAdmin,
-  user: IUser,
+  user: IUser, // userData,
 ): Promise<IUser | null> => {
   // If password is not given,set default password
   if (!user.password) {

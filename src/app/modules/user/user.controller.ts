@@ -6,6 +6,7 @@ import sendResponse from '../../../shared/sendResponse'
 import { IUser } from './user.interface'
 import { UserService } from './user.service'
 
+// student
 const createStudent: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { student, ...userData } = req.body
@@ -20,6 +21,7 @@ const createStudent: RequestHandler = catchAsync(
   },
 )
 
+// faculty
 const createFaculy: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { faculty, ...userData } = req.body
@@ -34,6 +36,7 @@ const createFaculy: RequestHandler = catchAsync(
   },
 )
 
+// admin
 const createAdmin: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { admin, ...userData } = req.body
