@@ -15,12 +15,16 @@ export type IUser = {
   admin?: Types.ObjectId | IAdmin
 }
 
+// user Model type
 export type UserModel = {
+  // static methods 1
   isUserExist(
     id: string,
-  ): Promise<Pick<IUser, 'id' | 'password' | 'role' | 'needsPasswordChange'>>
+    //Pick is used for selecting the properties from the object type IUser
+  ): Promise<Pick<IUser, 'id' | 'role' | 'password' | 'needsPasswordChange'>>
+  // static methods 2
   isPasswordMatched(
-    givenPassword: string,
-    savedPassword: string,
+    givenPassword: string, // new password
+    savedPassword: string, // old password
   ): Promise<boolean>
 } & Model<IUser>

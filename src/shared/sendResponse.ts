@@ -1,5 +1,6 @@
 import { Response } from 'express'
 
+// T is a Generic Type
 type IApiReponse<T> = {
   statusCode: number
   success: boolean
@@ -20,7 +21,6 @@ const sendResponse = <T>(res: Response, data: IApiReponse<T>): void => {
     meta: data.meta || null || undefined,
     data: data.data || null || undefined,
   }
-
   res.status(data.statusCode).json(responseData)
 }
 

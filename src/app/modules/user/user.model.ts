@@ -2,9 +2,9 @@
 import bcrypt from 'bcrypt'
 import { Schema, model } from 'mongoose'
 import config from '../../../config'
-import { IUser, IUserMethods, UserModel } from './user.interface'
+import { IUser, UserModel } from './user.interface'
 
-const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
+const UserSchema = new Schema<IUser, UserModel>(
   {
     id: {
       type: String,
@@ -18,7 +18,7 @@ const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
     password: {
       type: String,
       required: true,
-      select: 0,
+      select: 0, // hide password from the response body (don't want to get password)
     },
     needsPasswordChange: {
       type: Boolean,
@@ -29,15 +29,15 @@ const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
     },
     student: {
       type: Schema.Types.ObjectId,
-      ref: 'Student',
+      ref: 'Student', // referring to the name of the model 'Student'
     },
     faculty: {
       type: Schema.Types.ObjectId,
-      ref: 'Faculty',
+      ref: 'Faculty', // referring to the name of the model 'Faculty'
     },
     admin: {
       type: Schema.Types.ObjectId,
-      ref: 'Admin',
+      ref: 'Admin', // referring to the name of the model 'Admin'
     },
   },
   {
@@ -61,16 +61,18 @@ UserSchema.statics.isPasswordMatched = async function (
   givenPassword: string,
   savedPassword: string,
 ): Promise<boolean> {
-  return await bcrypt.compare(givenPassword, savedPassword)
+  return await bcrypt.compare(givenPassword, savedPassword) // password compare with hashed password
 }
 
 UserSchema.methods.changedPasswordAfterJwtIssued = function (
   jwtTimestamp: number,
 ) {
-  console.log({ jwtTimestamp }, 'hi')
+  console.log({ jwtTimestamp }, 'changed Password')
 }
 
 // User.create() / user.save()
+
+// pre hook for hashing user password
 UserSchema.pre('save', async function (next) {
   // hashing user password
   const user = this
@@ -78,28 +80,10 @@ UserSchema.pre('save', async function (next) {
     user.password,
     Number(config.bycrypt_salt_rounds),
   )
-
   if (!user.needsPasswordChange) {
     user.passwordChangedAt = new Date()
   }
-
   next()
 })
 
 export const User = model<IUser, UserModel>('User', UserSchema)
-
-// UserSchema.methods.isUserExist = async function (
-//   id: string
-// ): Promise<Partial<IUser> | null> {
-//   return await User.findOne(
-//     { id },
-//     { id: 1, password: 1, needsPasswordChange: 1 }
-//   );
-// };
-
-// UserSchema.methods.isPasswordMatched = async function (
-//   givenPassword: string,
-//   savedPassword: string
-// ): Promise<boolean> {
-//   return await bcrypt.compare(givenPassword, savedPassword);
-// };
