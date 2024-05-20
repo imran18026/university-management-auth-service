@@ -101,7 +101,7 @@ authentication =>
 
 ## user =>
 
-1 student <= [academic semester] <= [academic department] <= [academic Faculty]
-2 faculty <= [academic department] <= [academic Faculty]
-3 admin <= [management department]
+1 student <= [academic semester] <= [academic department] <= [academic Faculty]<br>
+2 faculty <= [academic department] <= [academic Faculty] <br>
+3 admin <= [management department] <br>
 4 auth
