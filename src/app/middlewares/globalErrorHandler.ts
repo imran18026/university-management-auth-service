@@ -12,6 +12,7 @@ import handleZodError from '../../errors/handleZodError'
 import { IGenericErrorMessage } from '../../interfaces/error'
 import { errorlogger } from '../../shared/logger'
 
+// global error handler
 const globalErrorHandler: ErrorRequestHandler = (
   error,
   req: Request,
